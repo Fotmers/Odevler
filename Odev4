@@ -1,0 +1,25 @@
+int pot = A0;
+int dc = 3;
+int led = 4;
+
+void setup()
+{
+  pinMode(pot, INPUT);
+  pinMode(led, OUTPUT);
+  pinMode(dc, OUTPUT);
+  Serial.begin(9600);
+}
+
+void loop()
+{
+  int oku = analogRead(pot);
+  int motor = map(oku, 0, 1023, 0, 255);
+  analogWrite(3, motor);
+  
+  Serial.println(motor);
+  
+  if(motor >= 127)
+    digitalWrite(led, 100);
+  else
+    digitalWrite(led, LOW);
+}
