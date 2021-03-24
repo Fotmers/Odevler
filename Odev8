@@ -1,0 +1,29 @@
+#include <Joystick.h>
+Joystick_ Joystick;
+
+#include <Servo.h>
+Servo servo1;
+Servo servo2;
+
+#define pot1 A0
+#define pot2 A1
+
+void setup() {
+  Joystick.begin();
+  servo1.attach(5);
+  servo2.attach(3);
+}
+
+void loop() {
+  
+  int pot1deger = analogRead(pot1);
+  int pot2deger = analogRead(pot2);
+  
+  int pot1Dond = map(pot1deger, 0, 1023, 0, 180);
+  int pot2Dond = map(pot2deger, 0, 1023, 0, 90);
+
+  servo1.write(pot1Dond);
+  delay(500);
+  servo2.write(pot2Dond);
+  delay(500);  
+}
