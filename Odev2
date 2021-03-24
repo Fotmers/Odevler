@@ -1,0 +1,26 @@
+int kirmizi = 3;
+int sari = 4;
+int yesil = 5;
+
+void setup()
+{
+  pinMode(kirmizi, OUTPUT);
+  pinMode(sari, OUTPUT);
+  pinMode(yesil, OUTPUT);
+}
+
+void loop()
+{
+  digitalWrite(kirmizi, HIGH);
+  delay(10000);
+  digitalWrite(kirmizi, LOW);
+  digitalWrite(sari, HIGH);
+  delay(10000);
+  digitalWrite(sari, LOW);
+  
+  delay(2000);
+  
+  digitalWrite(yesil, HIGH);
+  delay(5000);
+  digitalWrite(yesil, LOW);
+}
