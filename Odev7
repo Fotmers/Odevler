@@ -1,0 +1,32 @@
+#define BLYNK_PRINT Serial
+#include <Servo.h>
+Servo mert;
+
+#include <ESP8266WiFi.h>
+#include <BlynkSimpleEsp8266.h>
+
+char auth[] = "TOKEN";
+char ssid[] = "SSID";
+char pass[] = "PASSWORD";
+
+void setup()
+{
+  Serial.begin(9600);
+
+  Blynk.begin(auth, ssid, pass);
+  mert.attach(15);
+}
+
+void loop()
+{
+  Blynk.run();
+}
+
+BLYNK_WRITE (V1) 
+{
+  
+  mert.write(150);
+  delay(100);
+  mert.write(0);
+ 
+}
